@@ -22,15 +22,15 @@ $(function() {
       var $column = $('<div>').addClass('column');
       var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
       var $columnCardList = $('<ul>').addClass('column-list');
-      var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-      var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+      var $columnDelete = $('<button>').addClass('btn-delete').text('X');
+      var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj zadanie');
 
       // PODPINANIE ODPOWIEDNICH ZDARZEŃ
       $columnDelete.click(function() {
         self.removeColumn();
       });
       $columnAddCard.click(function(event) {
-        self.addCard(new Card(prompt("Wpisz nazwę karty")));
+        self.addCard(new Card(prompt("Wpisz nazwę zadania")));
       });
 
       // KONSTRUOWANIE ELEMENTU KOLUMNY
@@ -69,7 +69,7 @@ function createCard() {
     // TWORZENIE KLOCKÓW
     var $card = $('<li>').addClass('card');
     var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-    var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+    var $cardDelete = $('<button>').addClass('btn-delete').text('X');
 
     // PRZYPIĘCIE ZDARZENIA
     $cardDelete.click(function() {
@@ -97,7 +97,7 @@ function createCard() {
 
       addColumn: function(column) {
       this.$element.append(column.$element);
-      initSortable(); //O tej funkcji jeszcze sobie powiemy
+      initSortable(); 
     }
 
   };
@@ -110,7 +110,7 @@ function createCard() {
   }
   $('.create-column')
     .click(function() {
-      var name = prompt('Wpisz nazwę kolumny');
+      var name = prompt('Wpisz nazwę kategorii');
       var column = new Column(name);
       board.addColumn(column);
     });
@@ -124,9 +124,7 @@ function createCard() {
   board.addColumn(doingColumn);
   board.addColumn(doneColumn);
 
-  // TWORZENIE NOWYCH EGZEMPLARZY KART
-  var card1 = new Card('Nowe zadanie');
-  var card2 = new Card('Stworzyc tablice kanban');
+ 
 
   // DODAWANIE KART DO KOLUMN
   todoColumn.addCard(card1);
